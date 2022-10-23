@@ -9,19 +9,18 @@ function App() {
   const [input, setInput] = useState('')
   const [filteredData, setFilteredData] = useState([])
 
-  const searchData = () => {
+  const searchData = (e) => {
+    e.preventDefault()
     input !== '' && setFilteredData(data.filter((el) => el.nama_lengkap.toLowerCase().includes(input.toLowerCase())))
-  }
-
-  const getInput = (e) => {
-    setInput(e.target.value)
   }
 
 
   return (
     <div className="App">
-      <SearchBar onChange={getInput} placeholder='Masukkan Nama' required />
-      <Button onClick={searchData}>Cari</Button>
+      <form onSubmit={searchData}>
+        <SearchBar onChange={(e) => setInput(e.target.value)} placeholder='Masukkan Nama' type="text" required />
+        <Button type="submit">Cari</Button>
+      </form>
       <div className='container'>
         {filteredData.map((el, index) => {
           return (
