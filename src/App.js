@@ -1,36 +1,37 @@
-import data from './data_aegis'
-import Button from './components/Button';
-import Card from './components/Card';
-import SearchBar from './components/SearchBar';
-import './App.css'
-import { useState } from 'react';
+import './App.css';
+import React from 'react';
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Counter from './learn-useState/Counter';
+import Effect from './learn-useEffect/index'
+import Context from './learn-useContext/index'
 
 function App() {
-  const [input, setInput] = useState('')
-  const [filteredData, setFilteredData] = useState([])
-
-  const searchData = (e) => {
-    e.preventDefault()
-    input !== '' && setFilteredData(data.filter((el) => el.nama_lengkap.toLowerCase().includes(input.toLowerCase())))
-  }
-
-
   return (
-    <div className="App">
-      <form onSubmit={searchData}>
-        <SearchBar onChange={(e) => setInput(e.target.value)} placeholder='Masukkan Nama' type="text" required />
-        <Button type="submit">Cari</Button>
-      </form>
-      <div className='container'>
-        {filteredData.map((el, index) => {
-          return (
-            <Card data={el} key={index} />
-          )
-        })}
-      </div>
-    </div>
+    <Router>
 
+      <div className="App-header">
+        <nav className='NavBar'>
+          <ul className='ul'>
+            <li className='li'>
+              <Link to="/">Use State</Link>
+            </li>
+            <li className='li'>
+              <Link to="/effect">Use Effect</Link>
+            </li>
+            <li className='li'>
+              <Link to="/context">Use Context</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+            <Route path='/' exact element={<Counter />} />
+            <Route path='/effect' exact element={<Effect />} />
+            <Route path='/context' exact element={<Context />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
-
 export default App;
