@@ -3,7 +3,7 @@ import React from 'react';
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import Counter from './learn-useState/Counter';
+import Movie from './learn-useState/index';
 import Effect from './learn-useEffect/index';
 import Context from './learn-useContext/index';
 
@@ -26,7 +26,7 @@ function App() {
           </ul>
         </nav>
         <Routes>
-            <Route path='/' exact element={<Counter />} />
+            <Route path='/' exact element={<Movie />} />
             <Route path='/effect' exact element={<Effect />} />
             <Route path='/context' exact element={<Context />} />
         </Routes>
