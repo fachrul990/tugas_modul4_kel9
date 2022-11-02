@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import "./Index.css";
+import "./index.css";
 
 const App = () => {
   const inputX = useRef(0);
