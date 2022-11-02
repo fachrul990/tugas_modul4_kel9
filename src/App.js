@@ -4,8 +4,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Counter from './learn-useState/Counter';
-import Effect from './learn-useEffect/index'
-import Context from './learn-useContext/index'
+import Effect from './learn-useEffect/index';
+import Context from './learn-useContext/index';
 
 function App() {
   return (
